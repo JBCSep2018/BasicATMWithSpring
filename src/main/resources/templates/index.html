@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Bank of Spring Boot</title>
+</head>
+<body>
+<div th:if="${msg}">
+    <p th:text="${msg}"></p>
+</div>
+<h2>What would you like to do today?</h2>
+    <a href="/deposit">Deposit money</a>
+    <a href="/withdraw">Withdraw money</a>
+    <a href="/viewbalance">View my balance</a>
+</body>
+</html>

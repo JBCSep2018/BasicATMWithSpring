@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3>Enter account number</h3>
+<div th:if="${ask}==null">
+    <form th:action="@{/viewbalance}" method="post">
+            Enter account number:
+            <input type="text" name="theAccount">
+        <input type="hidden" value="true" name="ask">
+        <input type="submit" value="Search">
+
+    </form>
+</div>
+
+<div th:if="${msg}">
+    <p th:text="${msg}"></p>
+</div>
+
+<table>
+    <th>ID</th>
+    <th>Account Number</th>
+    <th>Action</th>
+    <th>Amount</th>
+    <th>Reason</th>
+
+    <tr th:if="${transactions}" th:each="eachTransaction:${transactions}">
+        <td th:text="${eachTransaction.id}"></td>
+        <td th:text="${eachTransaction.accountNumber}"></td>
+        <td th:text="${eachTransaction.action}"></td>
+        <td th:text="${eachTransaction.reason}"></td>
+        <td th:text="${eachTransaction.amount}"></td>
+        <td th:text="${eachTransaction.balance}"></td>
+    </tr>
+    <p th:inline="text">Your balance is [[${balance}]]</p>
+</table>
+
+
+</body>
+</html>
